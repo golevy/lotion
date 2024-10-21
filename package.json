@@ -6,20 +6,36 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky",
+    "cz": "cz"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.6",
     "lucide-react": "^0.453.0",
     "next": "14.2.15",
+    "prettier": "^3.3.3",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },
+  "lint-staged": {
+    "**/*.ts": [
+      "prettier --ignore-path ./.prettierignore --write"
+    ],
+    "**/*.json": [
+      "prettier --ignore-path ./.prettierignore --write"
+    ]
+  },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
