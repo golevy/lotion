@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { GeistSans } from 'geist/font/sans';
 import { cn } from '@/lib/utils';
+import { ThemeProvider } from '@/components/providers/theme-provider';
 
 export const metadata: Metadata = {
   title: 'Lotion',
@@ -29,7 +30,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn('antialiased', GeistSans.variable)}>{children}</body>
+      <body className={cn('antialiased', GeistSans.variable)}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          storageKey="lotion-theme"
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
